@@ -1,13 +1,16 @@
 let points = [];
-let directionChangeRate = 0.004;
+let directionChangeRate;
 let density = 55;
 let gap = width / density;
+
+let r1, r2, g1, g2, b1, b2;
 
 function setup(){
     createCanvas(windowWidth, windowHeight);
     frameRate(60);
-    background(30);
-    angleMode(DEGREES);
+    // noLoop();
+    background(240);
+    angleMode(DEGREES); 
     noiseDetail(1);    
 
     for(let x = 0; x < width; x += gap){
@@ -15,33 +18,43 @@ function setup(){
             points.push(createVector(x + random(-10, 10), y + random(-10, 10)));
         }
     }
+
+    shuffle(points, true);
+
+    r1 = random(255);
+    r2 = random(255);
+    g1 = random(255);
+    g2 = random(255);
+    b1 = random(255);
+    b2 = random(255);
+
+    directionChangeRate = random(0.001, 0.009);
 }
 function draw(){
     noStroke();
 
-    for(let point of points){
+    let max;
+
+    if(frameCount <= points.length){
+        max = frameCount;
+    } else{
+        max = points.length; 
+    }
+
+    for(let iterator = 0; iterator < max; iterator++){
         push();
-        let r = map(point.x, 0, width, 150, 255);
-        let g = map(point.x, 0, height, 70, 255);
-        let b = map(point.x, 0, width, 255, 50);
-        let alpha = map(dist(width/2, height/2, point.x, point.y), 0, 400, 175, 0);
+        let r = map(points[iterator].x, 0, width, r1, r2);
+        let g = map(points[iterator].y, 0, height, g1, g2); 
+        let b = map(points[iterator].x, 0, width, b1, b2);
+        let alpha = map(dist(width/2, height/2, points[iterator].x, points[iterator].y), 0, 400, 255, 0);
         fill(r, g, b, alpha);
-        ellipse(point.x, point.y, 1);
+        ellipse(points[iterator].x, points[iterator].y, 1);
         pop();
-        let angle = map(noise(point.x * directionChangeRate, point.y * directionChangeRate), 0, 1, 0, 720);
-        point.add(createVector(cos(angle), sin(angle)));
+        let angle = map(noise(points[iterator].x * directionChangeRate, points[iterator].y * directionChangeRate), 0, 1, 0, 720);
+        points[iterator].add(createVector(cos(angle), sin(angle)));
     }
 }
 
 function doubleClicked(){
-    createCanvas(windowWidth, windowHeight);
-    background(30);
-    while(points.length > 0){
-        points.pop();
-    }
-    for(let x = 0; x < width; x += gap){
-        for(let y = 0; y < height; y += gap){
-            points.push(createVector(x + random(-10, 10), y + random(-10, 10)));
-        }
-    }
-}
+    saveCanvas("flowField", "png");  
+} 
