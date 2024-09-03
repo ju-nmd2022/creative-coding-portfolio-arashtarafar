@@ -50,8 +50,9 @@ function draw(){
         let r = map(points[iterator].x, 0, width, r1, r2);
         let g = map(points[iterator].y, 0, height, g1, g2); 
         let b = map(points[iterator].x, 0, width, b1, b2);
-        let alpha = map(dist(width/2, height/2, points[iterator].x, points[iterator].y), 0, 400, 255, 0);
-        fill(r, g, b, alpha);
+        let shutOffValue = width > height ? width : height;
+        let alpha = map(dist(width/2, height/2, points[iterator].x, points[iterator].y), 0, shutOffValue, 255, 0);
+        fill(r, g, b, alpha); 
         ellipse(points[iterator].x, points[iterator].y, 1);
         pop();
         let angle = map(noise(points[iterator].x * directionChangeRate, points[iterator].y * directionChangeRate), 0, 1, 0, 720);
