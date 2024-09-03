@@ -51,7 +51,10 @@ function draw(){
         let g = map(points[iterator].y, 0, height, g1, g2); 
         let b = map(points[iterator].x, 0, width, b1, b2);
         let shutOffValue = width > height ? width : height;
-        let alpha = map(dist(width/2, height/2, points[iterator].x, points[iterator].y), 0, shutOffValue, 255, 0);
+        
+                
+        let alpha = map(dist(width/2, height/2, points[iterator].x, points[iterator].y), 0, shutOffValue / 2, 255, 0);
+        
         fill(r, g, b, alpha); 
         ellipse(points[iterator].x, points[iterator].y, 1);
         pop();
