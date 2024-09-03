@@ -1,15 +1,19 @@
-let points = [];
+let points;
 let directionChangeRate;
-let density = 55;
-let gap = width / density;
+let density;
+let gap;
 
 let r1, r2, g1, g2, b1, b2;
 
 function setup(){
+    points = [];
+    density = 55;
+    gap = width / density;
+
     createCanvas(windowWidth, windowHeight);
     frameRate(60);
     // noLoop();
-    background(240);
+    background(0);
     angleMode(DEGREES); 
     noiseDetail(1);    
 
