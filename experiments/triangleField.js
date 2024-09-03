@@ -6,10 +6,11 @@ function setup(){
 
 const width = 75;
 const height = width * sin(PI / 3) * 2 / 3;
-let significance = 1;
+let significance = Math.ceil(Math.random());
 
 
 function triangleCell(cellWidth, sizeProportion){
+    sizeProportion = Math.random();
     const edgeLength = sizeProportion * cellWidth * 2 / 3;
 
     fill(50);
