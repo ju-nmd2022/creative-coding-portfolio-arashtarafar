@@ -1,9 +1,10 @@
 // a heat map block, adapted from classroom smoke example
 function setup(){
-    createCanvas(500, 500);
+    createCanvas(windowWidth, windowHeight);
     frameRate(120);
 }
-const dotRadius = 13;
+let dotRadius = 12;
+let counterChangeRate = 0.008;
 let counter = 0;
 const divider = 66;
 function draw(){
@@ -19,5 +20,17 @@ function draw(){
             pop();            
         }
     }
-    counter += 0.008;
+    counter += counterChangeRate;
+}
+function keyPressed(){
+    if(counterChangeRate < 0.003) return;
+    dotRadius++;
+    counterChangeRate -= 0.001;
+}
+function mouseClicked(){
+    if(mouseButton === LEFT){
+        if(dotRadius < 3) return;
+        dotRadius--;
+        counterChangeRate += 0.001;
+    }
 }
