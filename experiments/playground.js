@@ -1,4 +1,5 @@
 let walker;
+let stepSize = 10;
 
 class Walker{
     constructor(){
@@ -8,11 +9,12 @@ class Walker{
         this.ty = 1000;
     }
     show(){
-        stroke(0);
-        strokeWeight(1.5);
-        fill(120);
+        push();
+        noStroke();
+        fill(50, 50, 120, 50);
         // point(this.x, this.y);
         circle(this.x, this.y, 40);
+        pop();
     }
     step(){
         const choice = floor(random(4));
@@ -29,16 +31,16 @@ class Walker{
     }
     mouseStep(){
         const determinant = random(1);
-        if(determinant < 0.5){
-            if(this.x < mouseX)this.x++;
-            else if(this.x > mouseX)this.x--;
-            if(this.y < mouseY)this.y++;
-            else if(this.y > mouseY)this.y--;
+        if(determinant < 0.2){
+            if(this.x < mouseX)this.x+=stepSize;
+            else if(this.x > mouseX)this.x-=stepSize;
+            if(this.y < mouseY)this.y+=stepSize;
+            else if(this.y > mouseY)this.y-=stepSize;
         }
-        else if (determinant < 0.625)this.x++;
-        else if (determinant < 0.75)this.x--;
-        else if (determinant < 0.875)this.y++;
-        else this.y--;
+        else if (determinant < 0.4)this.x+=stepSize/2;
+        else if (determinant < 0.6)this.x-=stepSize/2;
+        else if (determinant < 0.8)this.y+=stepSize/2;
+        else this.y-=stepSize/2;
     }
     noiseStep(){
         this.x = map(noise(this.tx), 0 , 1, 0, width);
@@ -50,9 +52,10 @@ class Walker{
 function setup(){
     walker = new Walker();
     background(255);
-    frameRate(60);
+    frameRate(30);
 }
 function draw(){
-    walker.noiseStep();
+    background(141, 141, 243, 10);
+    walker.mouseStep();
     walker.show();
 }

@@ -10,7 +10,7 @@
     "description": "A shifting heat map. Click to increase resolution. Press any key to decrease it."
   },
   {
-    "file": "experiments/eualizer.js",
+    "file": "experiments/equalizer.js",
     "name": "Calling Void",
     "description": "Try to figure out how this was made :)"
   }
