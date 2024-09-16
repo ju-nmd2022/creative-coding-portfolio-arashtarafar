@@ -90,10 +90,10 @@ function countNeighbors(grid, x, y){
     return sum;
 }
 
-function mouseClicked(){
+function mouseDragged(){
     grid[floor(mouseX / resolution)][floor(mouseY / resolution)] = 1;
 }
 
-function mouseDragged(){
+function mouseClicked(){
     grid[floor(mouseX / resolution)][floor(mouseY / resolution)] = 1;
 }
