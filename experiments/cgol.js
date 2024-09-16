@@ -66,7 +66,6 @@ function draw(){
                 fill(235);
             }
             rect(i * resolution, j * resolution, resolution, resolution);
-            circle(i * resolution, j * resolution, resolution);
             pop();
         }
     }
