@@ -1,13 +1,18 @@
 [
   {
-    "file": "experiments/flowField.js",
-    "name": "Flow Field",
-    "description": "Colored flow field. Double-click to save it as an image to your computer. Almost all parameters are random."
-  },
-  {
     "file": "experiments/cgol.js",
     "name": "Conway's Game of Life",
     "description": "A simple, randomly-initialized game of life. Click to generate a new simulation. Greens are healthy, reds are sick, and blues are babies."
+  },
+  {
+    "file": "experiments/cgol.js",
+    "name": "Conway's Game of Life God Mode",
+    "description": "Good ol' game of life, but you're God. Click or drag the mouse to create life in a cell. Greens are healthy, reds are sick, and blues are babies."
+  },
+  {
+    "file": "experiments/flowField.js",
+    "name": "Flow Field",
+    "description": "Colored flow field. Double-click to save it as an image to your computer. Almost all parameters are random."
   },
   {
     "file": "experiments/heatmap.js",
