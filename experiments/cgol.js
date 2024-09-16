@@ -1,8 +1,11 @@
+// Inspired by explanations of Dan Shiffman on the Coding Train YouTube channel
+
 let grid;
 let columns;
 let rows;
-let resolution = 10;
-let dimension = 400;
+let resolution = 15;
+let dimensionX = windowWidth;
+let dimensionY = windowHeight;
 
 function make2DArray(cols, rows){
     let array = new Array(cols);
@@ -13,9 +16,9 @@ function make2DArray(cols, rows){
 }
 
 function setup(){
-    createCanvas(dimension, dimension);
-    columns = dimension / resolution;
-    rows = dimension / resolution;
+    createCanvas(dimensionX, dimensionY);
+    columns = floor(dimensionX / resolution);
+    rows = floor(dimensionY / resolution);
     
     grid = make2DArray(columns, rows);
     for(let i = 0; i < columns; i++){

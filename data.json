@@ -5,6 +5,11 @@
     "description": "Colored flow field. Double-click to save it as an image to your computer. Almost all parameters are random."
   },
   {
+    "file": "experiments/cgol.js",
+    "name": "Conway's Game of Life",
+    "description": "A simple, randomly-initialized game of life"
+  },
+  {
     "file": "experiments/heatmap.js",
     "name": "Heat Map",
     "description": "A shifting heat map. Click to increase resolution. Press any key to decrease it."
