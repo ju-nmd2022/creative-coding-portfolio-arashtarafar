@@ -3,7 +3,7 @@
 let grid;
 let columns;
 let rows;
-let resolution = 15;
+let resolution = 20;
 let dimensionX = windowWidth;
 let dimensionY = windowHeight;
 
@@ -28,14 +28,13 @@ function setup(){
     }
 }
 function draw(){
-    background(0);
+    background(235);
 
     let next = make2DArray(columns, rows);
 
     // compute next generation
     for(let i = 0; i < columns; i++){
         for(j = 0; j < rows; j++){
-            
                 let sum = countNeighbors(grid, i, j);
                 let state = grid[i][j];
                 if(state === 1 && sum === 3){
@@ -51,21 +50,28 @@ function draw(){
         }
     }
 
-    grid = next;
-
     for(let i = 0; i < columns; i++){
         for(j = 0; j < rows; j++){
             push();
-            if(grid[i][j] === 1){
-                fill(255);
+            stroke(235);
+            if(grid[i][j] === 1 && next[i][j] === 1){
+                fill(78, 130, 117);
+            }else if(grid[i][j] === 1 && next[i][j] === 0){
+                fill(176, 111, 111);
+            }
+            else if(grid[i][j] === 0 && next[i][j] === 1){
+                fill(78, 93, 210);
             }
             else{
-                fill(0);
+                fill(235);
             }
             rect(i * resolution, j * resolution, resolution, resolution);
+            circle(i * resolution, j * resolution, resolution);
             pop();
         }
     }
+
+    grid = next;
 }
 
 function countNeighbors(grid, x, y){
@@ -77,4 +83,12 @@ function countNeighbors(grid, x, y){
     }
     sum -= grid[x][y];
     return sum;
+}
+
+function mouseClicked(){
+    for(let i = 0; i < columns; i++){
+        for(j = 0; j < rows; j++){
+            grid[i][j] = floor(random(2));
+        }
+    }
 }
