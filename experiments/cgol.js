@@ -4,8 +4,6 @@ let grid;
 let columns;
 let rows;
 let resolution = 20;
-let dimensionX = windowWidth;
-let dimensionY = windowHeight;
 
 function make2DArray(cols, rows){
     let array = new Array(cols);
@@ -16,6 +14,8 @@ function make2DArray(cols, rows){
 }
 
 function setup(){
+    dimensionX = windowWidth;
+    dimensionY = windowHeight;
     createCanvas(dimensionX, dimensionY);
     columns = floor(dimensionX / resolution);
     rows = floor(dimensionY / resolution);
