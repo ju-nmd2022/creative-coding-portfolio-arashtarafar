@@ -7,7 +7,7 @@
   {
     "file": "experiments/cgol.js",
     "name": "Conway's Game of Life",
-    "description": "A simple, randomly-initialized game of life"
+    "description": "A simple, randomly-initialized game of life. Click to generate a new simulation. Greens are healthy, reds are sick, and blues are babies."
   },
   {
     "file": "experiments/heatmap.js",
