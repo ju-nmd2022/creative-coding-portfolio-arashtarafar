@@ -3,7 +3,7 @@
 let grid;
 let columns;
 let rows;
-let resolution = 20;
+let resolution = 30;
 
 function make2DArray(cols, rows){
     let array = new Array(cols);
@@ -28,7 +28,7 @@ function setup(){
     }
 }
 function draw(){
-    background(235);
+    background(20);
 
     let next = make2DArray(columns, rows);
 
@@ -53,7 +53,7 @@ function draw(){
     for(let i = 0; i < columns; i++){
         for(j = 0; j < rows; j++){
             push();
-            stroke(235);
+            stroke(20);
             if(grid[i][j] === 1 && next[i][j] === 1){
                 fill(78, 130, 117);
             }else if(grid[i][j] === 1 && next[i][j] === 0){
@@ -63,7 +63,7 @@ function draw(){
                 fill(78, 93, 210);
             }
             else{
-                fill(235);
+                fill(20);
             }
             rect(i * resolution, j * resolution, resolution, resolution);
             pop();
