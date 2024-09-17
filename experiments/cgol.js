@@ -1,4 +1,4 @@
-// Inspired by explanations of Dan Shiffman on the Coding Train YouTube channel
+// inspired by explanations of Dan Shiffman on the Coding Train YouTube channel
 
 let grid;
 let columns;

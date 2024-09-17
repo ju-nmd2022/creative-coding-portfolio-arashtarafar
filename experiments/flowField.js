@@ -1,3 +1,5 @@
+// adapted from the flow field tutorial by Colorful Coding on YouTube
+
 let points;
 let directionChangeRate;
 let density;

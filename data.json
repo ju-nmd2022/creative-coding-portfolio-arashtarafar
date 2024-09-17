@@ -25,6 +25,11 @@
     "description": "A shifting heat map. Click to increase resolution. Press any key to decrease it."
   },
   {
+    "file": "experiments/psych.js",
+    "name": "Perlin Noise Scales",
+    "description": "A bunch of cubes rotating and changing shade using Perlin noise, which creates a scaly texture."
+  },
+  {
     "file": "experiments/equalizer.js",
     "name": "Calling Void",
     "description": "Try to figure out how this was made :)"
