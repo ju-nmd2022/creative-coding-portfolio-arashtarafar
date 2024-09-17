@@ -20,7 +20,7 @@
     "description": "Flow field paired with perlin noise to make the strands look more organic."
   },
   {
-    "file": "experiments/lineField.js",
+    "file": "experiments/linefield.js",
     "name": "A field of lines",
     "description": "Nearly everything here is utilizing Perlin noise. Guess what those things are..."
   },

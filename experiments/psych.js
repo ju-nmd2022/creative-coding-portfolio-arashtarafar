@@ -1,5 +1,5 @@
 // a heat map block, adapted from classroom smoke example
-let dotRadius = 20;
+let dotRadius = 30;
 let counterChangeRate = 0.01;
 let counter = 0;
 const divider = 66;
