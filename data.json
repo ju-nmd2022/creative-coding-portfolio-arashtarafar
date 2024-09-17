@@ -38,5 +38,10 @@
     "file": "experiments/equalizer.js",
     "name": "Calling Void",
     "description": "Try to figure out how this was made :)"
+  },
+  {
+    "file": "experiments/rings.js",
+    "name": "Tree Rings",
+    "description": "Ever chopped down a tree? Don't do it. But when you do, the surface inside of the trunk may look like this..."
   }
 ]

@@ -4,19 +4,19 @@ let scale = 55;
 let resolution = 0.002;
 let numPoints = 30;
 let time = 0.01;
-let radius = 200;
-let numSteps = 100;
+let radius;
+let numSteps = 40;
 
 function setup(){
     createCanvas(windowWidth, windowHeight);
-    frameRate(60);
-    // noLoop(); 
-    stroke(110, 10, 160, 100);
-    strokeWeight(3);
+    radius = windowWidth > windowHeight ? windowHeight / 2 : windowWidth / 2;
+    // frameRate(15);
+    noLoop(); 
+    stroke(23, 11, 6);
     noFill();
 }
 function draw() {
-  background(20, 5, 30);
+  background(237, 227, 202);
   for(let r = 0; r < radius; r += radius / numSteps){
     if(Math.random() < 0.3){
         continue;
@@ -27,10 +27,16 @@ function draw() {
         var y = height / 2 + r*sin(a);
 
         var n = map(noise(time + x*resolution + r/100, time +  y*resolution + r/100), 0, 1, -scale, scale);
+        strokeWeight(0.5);
         // point(x+n, y+n);
         curveVertex(x+n, y+n);
+
+        if(random()>0.9){
+          endShape();
+          beginShape();
+        }
     }
-    endShape(CLOSE);
+    endShape();
   }
-  time += 0.01;
+  // time += 0.01;
 }
