@@ -54,5 +54,10 @@
     "file": "experiments/snowotter.js",
     "name": "Snowflakes: Schotter Variation",
     "description": "Playing around with the source code for the Schotter recreation."
+  },
+  {
+    "file": "experiments/dandelion.js",
+    "name": "Dandelion: Schotter Variation",
+    "description": "Playing around with the source code for the Schotter recreation."
   }
 ]
