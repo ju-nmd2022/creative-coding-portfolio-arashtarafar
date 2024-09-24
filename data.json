@@ -43,5 +43,10 @@
     "file": "experiments/rings.js",
     "name": "Tree Rings",
     "description": "Ever chopped down a tree? Don't do it. But when you do, the surface inside of the trunk may look like this..."
+  },
+  {
+    "file": "experiments/schotter.js",
+    "name": "Recreation: Schotter",
+    "description": "Shotter by Georg Nees, recreated efficiently and responsive to the screen size."
   }
 ]
