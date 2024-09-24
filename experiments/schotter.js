@@ -1,3 +1,5 @@
+// Following the guide from J Alex Carney on YouTube
+
 let columns = 12;
 let rows = 26;
 let squareSize = 15;
