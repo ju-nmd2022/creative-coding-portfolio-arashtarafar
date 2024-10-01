@@ -7,14 +7,18 @@ let pendulums = [];
 
 let scale;
 
+let mixer;
+
 // ----------------------------------------------------------------------
 
 function setup(){
     createCanvas(windowWidth, windowHeight);
     Tone.Master.volume.value = masterVolume;
 
-    let style = "major pentatonic";
+    mixer = new Tone.Gain();
+    mixer.connect(Tone.Master);
 
+    let style = "major pentatonic";
     scale = Tonal.Scale.get("C3 " + style).notes;
     scale = scale.concat(Tonal.Scale.get("C4 " + style).notes);
     scale = scale.concat(Tonal.Scale.get("C5 " + style).notes);
@@ -77,7 +81,7 @@ class Pendulum{
         this.lfo.connect(this.meter);
 
         this.synth = new Tone.Synth();
-        this.synth.connect(Tone.Master);
+        this.synth.connect(mixer);
 
         this.prevPos = 0;
     }
