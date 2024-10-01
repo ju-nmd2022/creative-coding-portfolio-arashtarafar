@@ -16,7 +16,11 @@ function setup(){
     Tone.Master.volume.value = masterVolume;
 
     mixer = new Tone.Gain();
-    mixer.connect(Tone.Master);
+
+    let reverb = new Tone.Reverb();
+    mixer.connect(reverb);
+
+    reverb.connect(Tone.Master);
 
     let style = "major pentatonic";
     scale = Tonal.Scale.get("C3 " + style).notes;
