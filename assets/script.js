@@ -44,6 +44,12 @@ function goToExperiment(index) {
   toneScript.defer = true;
   bodyElement.appendChild(toneScript);
 
+  const tonalScript = document.createElement("script");
+  toneScript.type = "text/javascript";
+  toneScript.src = "https://cdn.jsdelivr.net/npm/tonal/browser/tonal.min.js";
+  toneScript.defer = true;
+  bodyElement.appendChild(tonalScript);
+
   const codeScript = document.createElement("script");
   codeScript.type = "text/javascript";
   codeScript.src = experiment.file;

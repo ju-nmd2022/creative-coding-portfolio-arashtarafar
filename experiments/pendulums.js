@@ -3,14 +3,18 @@ let ready = false;
 
 let pendulums = [];
 
+let scale;
+
 // ----------------------------------------------------------------------
 
 function setup(){
     createCanvas(windowWidth, windowHeight);
     Tone.Master.volume.value = masterVolume;
 
+    scale = Tonal.Scale.get("C4 major").notes;
+
     for(let i = 0; i < 7; i++){
-        pendulums[i] = new Pendulum(0.85 + i * (1/60), "C4");
+        pendulums[i] = new Pendulum(0.85 + i * (1/60), scale[i]);
     }
 }
 
@@ -64,7 +68,7 @@ class Pendulum{
         this.meter.normalRange = true; // 0 to 1 instead of dB
         this.lfo.connect(this.meter);
 
-        this.synth = new Tone.Synth();
+        this.synth = new Tone.AMSynth();
         this.synth.connect(Tone.Master);
 
         this.prevPos = 0;
@@ -80,7 +84,7 @@ class Pendulum{
 
         if(left || right){
             // trigger a note
-            this.synth.triggerAttackRelease("C4", "8n");
+            this.synth.triggerAttackRelease(this.note, "8n");
         }
 
         this.prevPos = pos;
