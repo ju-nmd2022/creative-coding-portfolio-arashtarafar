@@ -59,5 +59,10 @@
     "file": "experiments/dandelion.js",
     "name": "Dandelion: Schotter Variation",
     "description": "Playing around with the source code for the Schotter recreation."
+  },
+  {
+    "file": "experiments/pendulums.js",
+    "name": "Pendulums",
+    "description": "A group of pendulums making sound in unity, using low-frequency oscillators."
   }
 ]

@@ -1,7 +1,7 @@
 let masterVolume = -5; // in decibels
 let ready = false;
 
-let pendulum;
+let pendulums = [];
 
 // ----------------------------------------------------------------------
 
@@ -9,7 +9,9 @@ function setup(){
     createCanvas(windowWidth, windowHeight);
     Tone.Master.volume.value = masterVolume;
 
-    pendulum = new Pendulum(0.85, " C4");
+    for(let i = 0; i < 7; i++){
+        pendulums[i] = new Pendulum(0.85 + i * (1/60), "C4");
+    }
 }
 
 // ----------------------------------------------------------------------
@@ -19,7 +21,10 @@ function draw(){
 
     if(ready){
         // do audio things
-        pendulum.run();
+        for(p of pendulums){
+            p.run();
+            translate(0, height / pendulums.length);
+        }
     }else{
         fill(0, 220, 0);
         noStroke();
@@ -53,8 +58,8 @@ class Pendulum{
         this.frequency = frequency;
         this.note = note;
 
-        this.lfo = new Tone.LFO(0.85);
-        this.lfo.start();
+        this.lfo = new Tone.LFO(this.frequency);
+        this.lfo.start(1); // set the start schedule time as parameter i.e. delay start time by 1s
         this.meter = new Tone.Meter();
         this.meter.normalRange = true; // 0 to 1 instead of dB
         this.lfo.connect(this.meter);
