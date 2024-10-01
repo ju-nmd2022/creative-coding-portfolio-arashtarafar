@@ -13,9 +13,15 @@ function setup(){
     createCanvas(windowWidth, windowHeight);
     Tone.Master.volume.value = masterVolume;
 
-    scale = Tonal.Scale.get("C4 major").notes;
+    let style = "major pentatonic";
 
-    for(let i = 0; i < 7; i++){
+    scale = Tonal.Scale.get("C3 " + style).notes;
+    scale = scale.concat(Tonal.Scale.get("C4 " + style).notes);
+    scale = scale.concat(Tonal.Scale.get("C5 " + style).notes);
+
+    scale = Tonal.Collection.shuffle(scale);
+
+    for(let i = 0; i < scale.length; i++){
         pendulums[i] = new Pendulum(0.85 + i * (1/60), scale[i]);
     }
 }
@@ -61,7 +67,7 @@ function mousePressed(){
 
 class Pendulum{
     constructor(frequency, note){
-        this.frequency = frequency;
+        this.frequency = frequency * 0.3;
         this.note = note;
 
         this.lfo = new Tone.LFO(this.frequency);
@@ -70,7 +76,7 @@ class Pendulum{
         this.meter.normalRange = true; // 0 to 1 instead of dB
         this.lfo.connect(this.meter);
 
-        this.synth = new Tone.AMSynth();
+        this.synth = new Tone.Synth();
         this.synth.connect(Tone.Master);
 
         this.prevPos = 0;
