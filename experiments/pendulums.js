@@ -1,11 +1,15 @@
 let masterVolume = -5; // in decibels
 let ready = false;
 
+let pendulum;
+
 // ----------------------------------------------------------------------
 
 function setup(){
     createCanvas(windowWidth, windowHeight);
     Tone.Master.volume.value = masterVolume;
+
+    pendulum = new Pendulum(0.85, " C4");
 }
 
 // ----------------------------------------------------------------------
@@ -15,7 +19,7 @@ function draw(){
 
     if(ready){
         // do audio things
-        
+        pendulum.run();
     }else{
         fill(0, 220, 0);
         noStroke();
@@ -33,11 +37,11 @@ function windowResized(){
 function mousePressed(){
     if(!ready){
         // start audio objects
-        Tone.start();
+        Tone.Transport.start();
         ready = true;
     }else{
         // stop audio
-        Tone.stop();
+        Tone.Transport.stop();
         ready = false;
     }
 }
@@ -53,7 +57,7 @@ class Pendulum{
         this.lfo.start();
         this.meter = new Tone.Meter();
         this.meter.normalRange = true; // 0 to 1 instead of dB
-        this.lfo.connect(meter);
+        this.lfo.connect(this.meter);
 
         this.synth = new Tone.Synth();
         this.synth.connect(Tone.Master);
