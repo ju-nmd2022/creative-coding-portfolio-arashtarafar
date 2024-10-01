@@ -13,6 +13,10 @@ let mixer;
 
 function setup(){
     createCanvas(windowWidth, windowHeight);
+    
+}
+
+function initializeAudio(){
     Tone.Master.volume.value = masterVolume;
 
     mixer = new Tone.Gain();
@@ -65,6 +69,7 @@ function windowResized(){
 function mousePressed(){
     if(!ready){
         // start audio objects
+        initializeAudio();
         Tone.Transport.start();
         ready = true;
     }else{
