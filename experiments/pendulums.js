@@ -13,7 +13,6 @@ let mixer;
 
 function setup(){
     createCanvas(windowWidth, windowHeight);
-    
 }
 
 function initializeAudio(){
@@ -30,11 +29,11 @@ function initializeAudio(){
     reverb.connect(Tone.Master);
 
     let style = "major pentatonic";
-    scale = Tonal.Scale.get("C3 " + style).notes;
-    scale = scale.concat(Tonal.Scale.get("C4 " + style).notes);
-    scale = scale.concat(Tonal.Scale.get("C5 " + style).notes);
+    scale = Tonal.Scale.get("A3 " + style).notes;
+    scale = scale.concat(Tonal.Scale.get("A5 " + style).notes);
+    // scale = scale.concat(Tonal.Scale.get("A5 " + style).notes);
 
-    scale = Tonal.Collection.shuffle(scale);
+    // scale = Tonal.Collection.shuffle(scale);
 
     for(let i = 0; i < scale.length; i++){
         pendulums[i] = new Pendulum(0.85 + i * (1/60), scale[i]);
@@ -109,6 +108,7 @@ class Pendulum{
         if(left || right){
             // trigger a note
             this.synth.triggerAttackRelease(this.note, "8n");
+            this.note = scale[floor(random(0, scale.length))];
         }
 
         this.prevPos = pos;

@@ -40,14 +40,14 @@ function goToExperiment(index) {
 
   const toneScript = document.createElement("script");
   toneScript.type = "text/javascript";
-  toneScript.src = "assets/tone.js";
+  toneScript.src = "https://cdnjs.cloudflare.com/ajax/libs/tone/15.1.3/Tone.js";
   toneScript.defer = true;
   bodyElement.appendChild(toneScript);
 
   const tonalScript = document.createElement("script");
-  toneScript.type = "text/javascript";
-  toneScript.src = "https://cdn.jsdelivr.net/npm/tonal/browser/tonal.min.js";
-  toneScript.defer = true;
+  tonalScript.type = "text/javascript";
+  tonalScript.src = "https://cdn.jsdelivr.net/npm/tonal/browser/tonal.min.js";
+  tonalScript.defer = true;
   bodyElement.appendChild(tonalScript);
 
   const codeScript = document.createElement("script");
