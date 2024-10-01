@@ -17,7 +17,10 @@ function setup(){
 
     mixer = new Tone.Gain();
 
-    let reverb = new Tone.Reverb();
+    let reverb = new Tone.Reverb({
+        wet: 0.5,
+        decay: 20
+    });
     mixer.connect(reverb);
 
     reverb.connect(Tone.Master);
