@@ -1,3 +1,5 @@
+// Following Tone and Tonal tutorials by David Bouchard on YouTube
+
 let masterVolume = -5; // in decibels
 let ready = false;
 

@@ -63,6 +63,6 @@
   {
     "file": "experiments/pendulums.js",
     "name": "Pendulums",
-    "description": "A group of pendulums making sound in unity, using low-frequency oscillators."
+    "description": "A group of pendulums making sound in unity, using Tone.js low-frequency oscillators with the help of Tonal.js music theory library."
   }
 ]
